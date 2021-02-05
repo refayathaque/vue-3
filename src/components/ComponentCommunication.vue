@@ -1,5 +1,6 @@
 <template>
   <h2>ComponentCommunication.vue</h2>
+  <new-friend @add-friend="addFriend"></new-friend>
   <ul class="list-inline">
     <!-- https://getbootstrap.com/docs/5.0/content/typography/#inline -->
     <li class="list-inline-item" v-for="friend in friends" :key="friend.id">
@@ -9,15 +10,20 @@
         :phone="friend.phone"
         :email="friend.email"
         :profession="friend.profession"
+        :british="friend.british"
+        @give-knighthood="giveKnighthood"
+        @delete-friend="deleteFriend"
       ></friend-contact>
+      <!-- emitting custom events (child => parent communication) -->
     </li>
   </ul>
 </template>
 
 <script>
 import FriendContact from "./componentCommunication/FriendContact.vue";
+import NewFriend from "./componentCommunication/NewFriend.vue";
 export default {
-  components: { FriendContact },
+  components: { FriendContact, NewFriend },
   name: "ComponentCommunication",
   data() {
     return {
@@ -33,6 +39,7 @@ export default {
           name: "Pierre-Emile Højbjerg",
           phone: 398765442121,
           email: "højbjerg@spurs.com",
+          british: false,
         },
         {
           id: 789,
@@ -42,13 +49,35 @@ export default {
         },
         {
           id: 1000,
-          name: "Joao Sacramento",
+          name: "João Sacramento",
           phone: 768765442921,
-          email: "joao@spurs.com",
+          email: "joão@spurs.com",
           profession: "Premier League coaching staff",
+          british: false,
         },
       ],
     };
   },
+  methods: {
+    giveKnighthood(id) {
+      // console.log(id)
+      const identifiedFriend = this.friends.find(friend => friend.id === id)
+      identifiedFriend.name = 'Sir ' + identifiedFriend.name
+    },
+    // emitting custom events (child => parent communication)
+    addFriend(id, name, phone, email) {
+      console.log(id, name, phone, email)
+      const newFriend = {
+        id,
+        name,
+        phone,
+        email
+      }
+      this.friends.push(newFriend)
+    },
+    deleteFriend(id) {
+      this.friends = this.friends.filter(friend => friend.id !== id);
+    }
+  }
 };
 </script>
