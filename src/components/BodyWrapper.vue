@@ -1,13 +1,15 @@
 <template>
-  <h2>BodyWrapper.vue</h2>
+  <div class="container-fluid">
+    <h4>BodyWrapper.vue</h4>
+    <component-communication></component-communication>
+  </div>
 </template>
 
 <script>
+import ComponentCommunication from "./ComponentCommunication.vue";
+
 export default {
-  name: "BodyWrapper"
-}
+  components: { ComponentCommunication },
+  name: "BodyWrapper",
+};
 </script>
-
-<style scoped>
-
-</style>
