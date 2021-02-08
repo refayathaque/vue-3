@@ -41,6 +41,9 @@
     </div>
     <!-- https://getbootstrap.com/docs/5.0/components/progress/#height -->
     <p>Dynamic components</p>
+    <!-- how to add props to dynamic components? provide and inject -->
+    <!-- how to add custom events (child => parent) to dynamic components? provide and inject -->
+    <!-- check LearningResourcesApp.vue for example -->
     <button
       @click="selectComponent('active-goals')"
       type="button"
