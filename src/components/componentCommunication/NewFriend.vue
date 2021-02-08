@@ -21,8 +21,7 @@
         <label class="form-label">Email</label>
         <input v-model="email" type="email" class="form-control" />
       </div>
-            <div class="col">
-        
+      <div class="col">
         <button class="btn btn-outline-success">
           Add friend
         </button>

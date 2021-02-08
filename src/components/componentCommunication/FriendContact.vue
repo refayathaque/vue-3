@@ -27,7 +27,10 @@
         <li>Phone: {{ phone }}</li>
         <li>Email: {{ email }}</li>
       </ul>
-      <button class="btn btn-outline-danger" @click="$emit('delete-friend', id)">
+      <button
+        class="btn btn-outline-danger"
+        @click="$emit('delete-friend', id)"
+      >
         Delete
       </button>
       <!-- when binding to an event, you can either point at a method, execute a method or execute any other basic JS code -->

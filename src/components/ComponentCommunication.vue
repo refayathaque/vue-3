@@ -1,5 +1,11 @@
 <template>
+<div class="container-fluid componentBorder">
   <h2>ComponentCommunication.vue</h2>
+  <span class="badge rounded-pill bg-info text-dark">Props</span>
+  <span class="badge rounded-pill bg-info text-dark">Props validation</span>
+  <span class="badge rounded-pill bg-info text-dark"
+    >Emits / custom events</span
+  >
   <new-friend @add-friend="addFriend"></new-friend>
   <ul class="list-inline">
     <!-- https://getbootstrap.com/docs/5.0/content/typography/#inline -->
@@ -17,11 +23,13 @@
       <!-- emitting custom events (child => parent communication) -->
     </li>
   </ul>
+</div>
 </template>
 
 <script>
 import FriendContact from "./componentCommunication/FriendContact.vue";
 import NewFriend from "./componentCommunication/NewFriend.vue";
+
 export default {
   components: { FriendContact, NewFriend },
   name: "ComponentCommunication",
@@ -61,23 +69,23 @@ export default {
   methods: {
     giveKnighthood(id) {
       // console.log(id)
-      const identifiedFriend = this.friends.find(friend => friend.id === id)
-      identifiedFriend.name = 'Sir ' + identifiedFriend.name
+      const identifiedFriend = this.friends.find((friend) => friend.id === id);
+      identifiedFriend.name = "Sir " + identifiedFriend.name;
     },
     // emitting custom events (child => parent communication)
     addFriend(id, name, phone, email) {
-      console.log(id, name, phone, email)
+      console.log(id, name, phone, email);
       const newFriend = {
         id,
         name,
         phone,
-        email
-      }
-      this.friends.push(newFriend)
+        email,
+      };
+      this.friends.push(newFriend);
     },
     deleteFriend(id) {
-      this.friends = this.friends.filter(friend => friend.id !== id);
-    }
-  }
+      this.friends = this.friends.filter((friend) => friend.id !== id);
+    },
+  },
 };
 </script>
