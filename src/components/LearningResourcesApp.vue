@@ -30,7 +30,8 @@ export default {
   provide() {
     return {
       storedResources: this.storedResources,
-      addResource: this.addResource
+      addResource: this.addResource,
+      removeResource: this.removeResource,
     };
   },
   components: { StoredResources, AddResource },
@@ -46,7 +47,13 @@ export default {
         link,
       };
       this.storedResources.unshift(newResource);
-      this.selectedComponent = 'stored-resources'
+      this.selectedComponent = "stored-resources";
+    },
+    removeResource(id) {
+      const responseIndex = this.storedResources.findIndex(
+        (response) => response.id === id
+      );
+      this.storedResources.splice(responseIndex, 1);
     },
   },
   data() {

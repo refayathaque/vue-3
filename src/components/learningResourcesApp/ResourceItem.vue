@@ -6,12 +6,13 @@
     ><span
       ><a :href="link">{{ title }}</a></span
     ><span> - {{ description }} - </span>
-    <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+    <button type="button" class="btn btn-outline-danger btn-sm" @click="removeResource(id)">Delete</button>
   </li>
 </template>
 
 <script>
 export default {
   props: ["id", "title", "description", "link"],
+  inject: ["removeResource"],
 };
 </script>

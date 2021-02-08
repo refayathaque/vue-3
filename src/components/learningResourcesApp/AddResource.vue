@@ -1,4 +1,18 @@
 <template>
+  <modal v-if="inputIsInvalid" title="Invalid input" @close="confirmError">
+    <template #default>
+      <p>At least one input value is invalid, check all input fields</p>
+    </template>
+    <template #actions>
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        @click="confirmError"
+      >
+        Okay
+      </button>
+    </template>
+  </modal>
   <h4>AddResource.vue</h4>
   <form @submit.prevent="submitForm">
     <div class="mb-3">
@@ -18,10 +32,13 @@
 </template>
 
 <script>
+import Modal from "./Modal.vue";
 export default {
+  components: { Modal },
   inject: ["addResource"],
   data() {
     return {
+      inputIsInvalid: false,
       title: "",
       description: "",
       link: "",
@@ -29,7 +46,15 @@ export default {
   },
   methods: {
     submitForm() {
+      if (!this.title.trim() || !this.description.trim() || !this.link.trim()) {
+        // trim removes excess white space at the beginning and end of strings
+        this.inputIsInvalid = true;
+        return;
+      }
       this.addResource(this.title, this.description, this.link);
+    },
+    confirmError() {
+      this.inputIsInvalid = false;
     },
   },
 };
