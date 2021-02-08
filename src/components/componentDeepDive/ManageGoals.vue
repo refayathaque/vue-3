@@ -37,7 +37,6 @@ export default {
     setGoal() {
       if (this.goal === "") {
         this.inputIsInvalid = true;
-        console.log("poo");
       }
     },
     confirmError() {
