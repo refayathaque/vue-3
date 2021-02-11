@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid componentBorder">
     <h4>BodyWrapper.vue</h4>
+    <http-requests></http-requests>
     <forms></forms>
     <learning-resources-app></learning-resources-app>
     <component-deep-dive></component-deep-dive>
@@ -12,10 +13,11 @@
 import ComponentCommunication from "./ComponentCommunication.vue";
 import ComponentDeepDive from "./ComponentDeepDive.vue";
 import Forms from './Forms.vue';
+import HttpRequests from './HttpRequests.vue';
 import LearningResourcesApp from "./LearningResourcesApp.vue";
 
 export default {
-  components: { ComponentCommunication, ComponentDeepDive, LearningResourcesApp, Forms },
+  components: { ComponentCommunication, ComponentDeepDive, LearningResourcesApp, Forms, HttpRequests },
   name: "BodyWrapper",
 };
 </script>
