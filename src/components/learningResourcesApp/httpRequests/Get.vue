@@ -62,7 +62,7 @@ export default {
 
       try {
         const resolvedOne = await fetch(
-          "https://jsonplaceholder.typicode.com/coments"
+          "https://jsonplaceholder.typicode.com/comments"
         );
         if (resolvedOne.status === (200 || 201)) {
           const resolvedTwo = await resolvedOne.json();
