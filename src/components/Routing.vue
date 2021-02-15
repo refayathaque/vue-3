@@ -32,9 +32,9 @@ export default {
   provide() {
     return {
       teams: this.teams,
-      users: this.users
-    }
-  }
+      users: this.users,
+    };
+  },
 };
 </script>
 
