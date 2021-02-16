@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid componentBorder">
     <h4>BodyWrapper.vue</h4>
+    <animations-and-transitions></animations-and-transitions>
     <routing></routing>
     <http-requests></http-requests>
     <forms></forms>
@@ -13,13 +14,22 @@
 <script>
 import ComponentCommunication from "./ComponentCommunication.vue";
 import ComponentDeepDive from "./ComponentDeepDive.vue";
-import Forms from './Forms.vue';
-import Routing from './Routing.vue';
-import HttpRequests from './HttpRequests.vue';
+import Forms from "./Forms.vue";
+import Routing from "./Routing.vue";
+import HttpRequests from "./HttpRequests.vue";
 import LearningResourcesApp from "./LearningResourcesApp.vue";
+import AnimationsAndTransitions from "./AnimationsAndTransitions.vue";
 
 export default {
-  components: { ComponentCommunication, ComponentDeepDive, LearningResourcesApp, Forms, HttpRequests, Routing },
+  components: {
+    AnimationsAndTransitions,
+    ComponentCommunication,
+    ComponentDeepDive,
+    LearningResourcesApp,
+    Forms,
+    HttpRequests,
+    Routing,
+  },
   name: "BodyWrapper",
 };
 </script>
