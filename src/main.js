@@ -4,6 +4,8 @@ import { createApp } from "vue";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import BaseModal from './components/animationsAndTransitions/BaseModal.vue';
+
 import router from './router';
 
 import App from "./App.vue";
@@ -11,5 +13,8 @@ import App from "./App.vue";
 const app = createApp(App);
 
 app.use(router);
+
+app.component('base-modal', BaseModal);
+// modals still need to be registered
 
 app.mount("#app");
