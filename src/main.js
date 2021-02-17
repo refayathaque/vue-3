@@ -4,20 +4,22 @@ import { createApp } from "vue";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import BaseModal from './components/animationsAndTransitions/BaseModal.vue';
-
-import router from './router';
-
+// components
 import App from "./App.vue";
+import BaseModal from "./components/animationsAndTransitions/BaseModal.vue";
+
+import store from "./store";
+
+import router from "./router";
 
 const app = createApp(App);
 
-app.use(router);
+// registered components, *modals still need to be registered
+app.component("base-modal", BaseModal);
 
 router.isReady().then(() => {
   app.mount("#app");
-})
+}); // order matters here! routing will only work if this is before `app.use(router)`
 
-app.component('base-modal', BaseModal);
-// modals still need to be registered
-
+app.use(router);
+app.use(store);

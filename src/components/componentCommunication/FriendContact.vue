@@ -77,7 +77,7 @@ export default {
     "give-knighthood": function(id) {
       if (!id) {
         console.warn(
-          "give-knighthood custom event 2nd argument of id is missing!"
+          "give-knighthood custom event 2nd arg of id is missing!"
         );
         return false;
       } else {
@@ -97,7 +97,7 @@ export default {
     },
     giveKnighthood() {
       this.$emit("give-knighthood", this.id);
-      // emitting custom event for parent component to listen for, use kebab-case in first argument (name of custom event parent component will look for) to $emit
+      // emitting custom event for parent component to listen for, use kebab-case in first arg (name of custom event parent component will look for) to $emit
     },
   },
 };

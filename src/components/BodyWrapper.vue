@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid componentBorder">
     <h4>BodyWrapper.vue</h4>
+    <vuex></vuex>
     <animations-and-transitions></animations-and-transitions>
     <!-- <routing></routing> -->
     <!-- for some inexplicable reason, this component prevents the animated routing in the animations-and-transitions component -->
@@ -20,6 +21,7 @@ import Forms from "./Forms.vue";
 import HttpRequests from "./HttpRequests.vue";
 import LearningResourcesApp from "./LearningResourcesApp.vue";
 import AnimationsAndTransitions from "./AnimationsAndTransitions.vue";
+import Vuex from "./Vuex.vue";
 
 export default {
   components: {
@@ -29,6 +31,7 @@ export default {
     LearningResourcesApp,
     Forms,
     HttpRequests,
+    Vuex,
     // Routing,
   },
   name: "BodyWrapper",
