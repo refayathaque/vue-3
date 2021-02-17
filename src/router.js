@@ -5,6 +5,8 @@ import TeamMembers from "./components/routing/TeamMembers.vue";
 import Users from "./components/routing/Users.vue";
 import NamedRouterAlpha from "./components/routing/NamedRouterAlpha.vue";
 import NamedRouterBeta from "./components/routing/NamedRouterBeta.vue";
+import AnimatedRouteAlpha from "./components/animationsAndTransitions/AnimatedRouteAlpha.vue";
+import AnimatedRouteBeta from "./components/animationsAndTransitions/AnimatedRouteBeta.vue";
 
 const router = createRouter({
   scrollBehavior(_, _2, savedPosition) {
@@ -18,6 +20,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", redirect: "/teams" },
+    { path: "/animatedRouteAlpha", component: AnimatedRouteAlpha },
+    { path: "/animatedRouteBeta", component: AnimatedRouteBeta },
     {
       path: "/teams",
       component: Teams,
@@ -31,7 +35,11 @@ const router = createRouter({
     },
     {
       path: "/users",
-      meta: { extraData: 'Access me with $route in components', extraDataTwo: 'Can also access me in the nav guards', needsAuth: true },
+      meta: {
+        extraData: "Access me with $route in components",
+        extraDataTwo: "Can also access me in the nav guards",
+        needsAuth: true,
+      },
       component: Users,
       children: [
         {
