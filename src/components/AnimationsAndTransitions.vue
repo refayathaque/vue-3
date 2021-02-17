@@ -28,11 +28,17 @@
         <button @click="hideUsers" v-else>Hide users</button>
       </transition>
     </div>
+    <animated-list></animated-list>
+    <animated-routes></animated-routes>
   </div>
 </template>
 
 <script>
+import AnimatedList from './animationsAndTransitions/AnimatedList.vue';
+import AnimatedRoutes from './animationsAndTransitions/AnimatedRoutes.vue';
+
 export default {
+  components: { AnimatedList, AnimatedRoutes },
   data() {
     return {
       dialogIsVisible: false,
