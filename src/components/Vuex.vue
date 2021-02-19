@@ -36,6 +36,7 @@ export default {
   methods: {
     ...mapActions("counterModule", ["incrementCounter"]),
     ...mapActions("authModule", ["toggleAuth"]),
+    // first arg is namespace of module, followed by action(s)/getter(s) in array
     // args that go into dispatching an action are name of the mutation and payload (provided above in template)
   },
   computed: {
